@@ -1,0 +1,11 @@
+<div class="body">
+  <app-left-section (passedEventIndia)="india()" (passedEventUSA)="usa()" (passedEventUK)="uk()"
+    (passedEventGermany)="germany()" (passedEventCanada)="canada()" (passedEventAustralia)="australia()"
+    (passedEventSaudiArabia)="saudiArabia()" (passedEventFrance)="france()" (passedEventItaly)="italy()"
+    (passedEventSingapore)="singapore()" (passedEventNewZealand)="newZealand()" [indiaClass]="indiaClass"
+    [usaClass]="usaClass" [ukClass]="ukClass" [germanyClass]="germanyClass" [canadaClass]="canadaClass"
+    [australiaClass]="australiaClass" [saudiArabiaClass]="saudiArabiaClass" [franceClass]="franceClass"
+    [italyClass]="italyClass" [singaporeClass]="singaporeClass" [newZealandClass]="newZealandClass"></app-left-section>
+    
+  <app-right-section [articles]="news?.articles" [countrySelected]="countrySelected"></app-right-section>
+</div>

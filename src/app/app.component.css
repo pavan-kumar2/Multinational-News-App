@@ -1,0 +1,22 @@
+.body {
+    display: flex;
+  }
+  
+  app-left-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+  }
+  
+  app-right-section {
+    margin-top: 65px;
+  }
+  
+  @media only screen and (max-width:576px) {
+    app-right-section {
+      margin-top: 55px;
+    }
+  }
+  

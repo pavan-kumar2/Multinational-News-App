@@ -1,0 +1,24 @@
+<div class="header">
+    <h1>NEWS of {{countrySelected}}</h1>
+  </div>
+  <div class="row row-cols-1 row-cols-md-2 g-3 margin-r-l-0">
+    <div class="col" *ngFor="let item of articles">
+      <div class="card shadow-sm">
+        <img src="{{item.urlToImage}}" alt="img" class="bd-placeholder-img card-img-top card-img">
+  
+        <div class="card-body">
+          <h5 class="card-title">{{item.title}}</h5>
+          <p class="card-description">{{item.description}}</p>
+          <hr>
+          <p class="card-text card-content">{{item.content}}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <a href="{{item.url}}"><button type="button" class="btn btn-sm btn-outline-secondary view-btn font-sm-size">View</button></a>
+            </div>
+            <small class="text-muted font-sm-size">{{item.publishedAt}}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

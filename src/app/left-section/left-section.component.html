@@ -1,0 +1,55 @@
+<nav class="navbar bg-font-color left-section-body" aria-label="Light offcanvas navbar">
+    <div class="container-fluid">
+      <div class="left-section-head">Multinational-News</div>
+      <button class="navbar-toggler humberger-btn" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNavbarLight" aria-controls="offcanvasNavbarLight">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-start text-center side-list" tabindex="-1" id="offcanvasNavbarLight"
+        aria-labelledby="offcanvasNavbarLightLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLightLabel">Select your National</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item nav-link {{indiaClass}}" (click)="passEventIndia()">
+              India
+            </li>
+            <li class="nav-item nav-link {{usaClass}}" (click)="passEventUSA()">
+              USA
+            </li>
+            <li class="nav-item nav-link {{ukClass}}" (click)="passEventUK()">
+              UK
+            </li>
+            <li class="nav-item nav-link {{canadaClass}}" (click)="passEventCanada()">
+              Canada
+            </li>
+            <li class="nav-item nav-link {{australiaClass}}" (click)="passEventAustralia()">
+              Australia
+            </li>
+            <li class="nav-item nav-link {{germanyClass}}" (click)="passEventGermany()">
+              Germany
+            </li>
+            <li class="nav-item nav-link {{saudiArabiaClass}}" (click)="passEventSaudiArabia()">
+              Saudi Arabia
+            </li>
+            <li class="nav-item nav-link {{franceClass}}" (click)="passEventFrance()">
+              France
+            </li>
+            <li class="nav-item nav-link {{italyClass}}" (click)="passEventItaly()">
+              Italy
+            </li>
+            <li class="nav-item nav-link {{singaporeClass}}" (click)="passEventSingapore()">
+              Singapore
+            </li>
+            <li class="nav-item nav-link {{newZealandClass}}" (click)="passEventNewZealand()">
+              New Zealand
+            </li>
+          </ul>
+  
+        </div>
+      </div>
+    </div>
+  </nav>
+  
