@@ -1,5 +1,9 @@
 # MultinationalNewsApp
 
+Multinational-News-App build by using Angular2+ web application framework, Bootstrap for responsiveness of website and AJAX call to get data from API
+
+project link: https://pavan-kumar2.github.io/Multinational-News-App/
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
 
 ## Development server
