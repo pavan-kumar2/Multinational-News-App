@@ -5,7 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
-
+import { FormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { HttpClientModule } from '@angular/common/http'
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +16,10 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgSelectModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
