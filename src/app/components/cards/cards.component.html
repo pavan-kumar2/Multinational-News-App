@@ -1,0 +1,47 @@
+<div class="cards-container">
+  <div class="card" *ngFor="let newsArticle of newsArticles">
+    <div class="img-container">
+      <img
+        class="response-img"
+        *ngIf="newsArticle.urlToImage"
+        [src]="newsArticle.urlToImage"
+      />
+
+      <img
+        class="empty-state-img"
+        *ngIf="!newsArticle.urlToImage"
+        src="assets/images/no-image-found.png"
+      />
+    </div>
+
+    <div class="content-container">
+      <div class="top-section">
+        <h4 class="title" *ngIf="newsArticle.title">{{ newsArticle.title }}</h4>
+
+        <div
+          class="description"
+          *ngIf="newsArticle.description"
+          [innerHTML]="newsArticle.description"
+        ></div>
+
+        <a class="action-btn" [href]="newsArticle.url" target="_blank">
+          View More</a
+        >
+      </div>
+
+      <div class="bottom-section">
+        <p class="author" *ngIf="newsArticle.author">
+          <span> Author: </span>
+          <span [innerHTML]="newsArticle.author"></span>
+        </p>
+
+        <p class="pulished-time">
+          <span> Published At: </span>
+          <span>
+            {{ newsArticle.publishedAt }}
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

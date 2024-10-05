@@ -1,0 +1,104 @@
+@mixin flex-box(
+  $direction: null,
+  $align: null,
+  $justify: null,
+  $wrap: null,
+  $gap: null
+) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+  flex-wrap: $wrap;
+  gap: $gap;
+}
+
+.cards-container {
+  @include flex-box($wrap: wrap);
+  gap: 25px;
+  margin: 25px;
+
+  .card {
+    width: calc((100% - 50px) / 3);
+    border: 1px solid #b1cee3;
+    border-radius: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+    @include flex-box($direction: column);
+    .img-container {
+      height: 280px;
+      min-height: 280px;
+      img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+      }
+    }
+
+    .content-container {
+      padding: 20px;
+      height: 100%;
+      @include flex-box(
+        $direction: column,
+        $justify: space-between,
+        $gap: 20px
+      );
+
+      .top-section {
+        @include flex-box($direction: column, $gap: 15px);
+        .title {
+          font-size: 22px;
+          font-weight: 600;
+          color: #232323;
+        }
+
+        .description {
+          font-size: 16px;
+          font-weight: 400;
+          color: #232323;
+        }
+
+        .action-btn {
+          background-color: #577cff;
+          color: white;
+          width: max-content;
+          font-size: 16px;
+          font-weight: 500;
+          padding: 10px 20px;
+          text-decoration: none;
+          border-radius: 5px;
+          transition: all 0.1s ease-in-out;
+
+          &:active {
+            transform: scale(0.985);
+          }
+        }
+      }
+
+      .bottom-section {
+        @include flex-box($direction: column, $gap: 10px);
+        .author {
+          font-size: 15px;
+          font-weight: 400;
+
+          span {
+            &:first-child {
+              font-weight: 500;
+            }
+          }
+        }
+
+        .pulished-time {
+          font-size: 15px;
+          font-weight: 400;
+          span {
+            &:first-child {
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+  }
+}
