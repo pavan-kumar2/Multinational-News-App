@@ -7,12 +7,14 @@ import { HeaderComponent } from './components/header/header.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { CardsComponent } from './components/cards/cards.component'
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    DropdownComponent
+    DropdownComponent,
+    CardsComponent
   ],
   imports: [
     BrowserModule,
