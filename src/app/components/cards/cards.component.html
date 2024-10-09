@@ -3,14 +3,8 @@
     <div class="img-container">
       <img
         class="response-img"
-        *ngIf="newsArticle.urlToImage"
         [src]="newsArticle.urlToImage"
-      />
-
-      <img
-        class="empty-state-img"
-        *ngIf="!newsArticle.urlToImage"
-        src="assets/images/no-image-found.png"
+        (error)="imageErrorHandling($event)"
       />
     </div>
 
@@ -35,13 +29,19 @@
           <span [innerHTML]="newsArticle.author"></span>
         </p>
 
-        <p class="pulished-time">
+        <div class="published-time">
           <span> Published At: </span>
-          <span>
-            {{ newsArticle.publishedAt }}
-          </span>
-        </p>
+
+          <p [innerHTML]="newsArticle.publishedAt"></p>
+        </div>
       </div>
     </div>
   </div>
+  <ng-container *ngIf="isError">
+    <img class="empty-state" src="assets/images/response-error.jpg" />
+  </ng-container>
+
+  <ng-container *ngIf="isLoading">
+    <h1>Loading</h1>
+  </ng-container>
 </div>

@@ -1,40 +1,53 @@
-import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
 
-
-export interface NewsArticle {
-  source: Source,
-  author: string,
-  title: string,
-  description: string,
-  url: string,
-  urlToImage: string,
-  publishedAt: string,
-  content: string
-}
-
-export interface Source {
-  id: string,
-  name: string
-}
-
+import { Component, Input } from '@angular/core';
+import { NewsArticle } from 'src/app/shared/news-articles.model';
+import { NewsApiService } from 'src/app/services/news-api.service';
 
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
-  styleUrls: ['./cards.component.scss']
+  styleUrls: ['./cards.component.scss'],
 })
 export class CardsComponent {
-
   newsArticles: NewsArticle[] = [];
 
-  constructor(private http: HttpClient) { }
+  isError: boolean = false;
+  isLoading: boolean = false;
+
+  emptyStateImage = 'assets/images/no-image-found.png';
+
+  private _selectedCountry!: string;
+
+  @Input() set selectedCountry(country) {
+    this._selectedCountry = country;
+
+    this.newsApiService
+      .getNewsRequest(this.selectedCountry)
+      .subscribe(value => this.newsArticles = value);
+    this.newsApiService.isError$.subscribe(value => this.isError = value);
+    this.newsApiService.isLoading$.subscribe(value => this.isLoading = value)
+  }
+
+  get selectedCountry() {
+    return this._selectedCountry;
+  }
+
+
+
+
+  constructor(
+    private newsApiService: NewsApiService
+  ) { }
 
   ngOnInit() {
-    this.http.get<{ articles: NewsArticle[] }>('https://gist.githubusercontent.com/pavan-kumar2/8fb68c793eda5c22a75492593a4572d5/raw/80516d649f9b308bad93dc265827ff0d7479cce8/multinational-news-canada.json')
-      .subscribe(data => {
-        console.log(data.articles);
-        this.newsArticles = data.articles;
-      })
+
+
+  }
+
+
+
+  imageErrorHandling(event: Event) {
+    let imageElement = event.target as HTMLImageElement;
+    imageElement.src = this.emptyStateImage;
   }
 }

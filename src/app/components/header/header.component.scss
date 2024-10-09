@@ -1,3 +1,21 @@
+@keyframes breathing {
+  0% {
+    transform: scale(0.9);
+  }
+
+  25% {
+    transform: scale(1);
+  }
+
+  60% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(0.9);
+  }
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -7,6 +25,7 @@
 
   .logo {
     width: 60px;
+    animation: breathing 3s ease-out infinite normal;
   }
 
   .dropdown-container {
