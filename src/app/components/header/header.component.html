@@ -2,6 +2,7 @@
   <img class="logo" src="./assets/images/MN-logo.png" />
 
   <div class="dropdown-container">
-    <app-dropdown> </app-dropdown>
+    <app-dropdown (selectedCountry$)="selectedCountry$.emit($event)">
+    </app-dropdown>
   </div>
 </header>
