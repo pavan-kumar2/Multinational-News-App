@@ -1,5 +1,6 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { SELECTED_COUNTRY } from './shared/country.constants';
 
 
 
@@ -11,27 +12,8 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent {
   title = 'Multinational-News-App';
 
+  selectedCountry: string = SELECTED_COUNTRY;
 
-  constructor() {
-
-
-    'multinational-news-australia.json'
-    'multinational-news-canada.json'
-    'multinational-news-france.json'
-    "multinational-news-germany.json"
-    "multinational-news-india.json"
-    "multinational-news-italy.json"
-    "multinational-news-newZealand.json"
-    "multinational-news-saudiArabia.json"
-    "multinational-news-singapore.json"
-    "multinational-news-uk.json"
-    "multinational-news-usa.json"
-    ""
-
-  }
-
-
-
-
+  constructor() { }
 
 }
