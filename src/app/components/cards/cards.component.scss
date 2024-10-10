@@ -1,17 +1,4 @@
-@mixin flex-box(
-  $direction: null,
-  $align: null,
-  $justify: null,
-  $wrap: null,
-  $gap: null
-) {
-  display: flex;
-  flex-direction: $direction;
-  align-items: $align;
-  justify-content: $justify;
-  flex-wrap: $wrap;
-  gap: $gap;
-}
+@import "src/app/styles/base";
 
 .cards-container {
   @include flex-box($wrap: wrap);
