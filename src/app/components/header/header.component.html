@@ -1,8 +1,9 @@
 <header class="header">
   <img class="logo" src="./assets/images/MN-logo.png" />
 
+  <div class="title-badge-container" [innerHTML]="headerTitle"></div>
+
   <div class="dropdown-container">
-    <app-dropdown (selectedCountry$)="selectedCountry$.emit($event)">
-    </app-dropdown>
+    <app-dropdown (selectedCountry$)="selectedCountry($event)"> </app-dropdown>
   </div>
 </header>
