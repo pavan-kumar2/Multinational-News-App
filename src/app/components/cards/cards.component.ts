@@ -19,13 +19,17 @@ export class CardsComponent {
   private _selectedCountry!: string;
 
   @Input() set selectedCountry(country) {
-    this._selectedCountry = country;
 
-    this.newsApiService
-      .getNewsRequest(this.selectedCountry)
-      .subscribe(value => this.newsArticles = value);
-    this.newsApiService.isError$.subscribe(value => this.isError = value);
-    this.newsApiService.isLoading$.subscribe(value => this.isLoading = value)
+    if (country) {
+      this._selectedCountry = country;
+
+      this.newsApiService
+        .getNewsRequest(this.selectedCountry)
+        .subscribe(value => this.newsArticles = value);
+      this.newsApiService.isError$.subscribe(value => this.isError = value);
+      this.newsApiService.isLoading$.subscribe(value => this.isLoading = value)
+    }
+
   }
 
   get selectedCountry() {
@@ -49,5 +53,10 @@ export class CardsComponent {
   imageErrorHandling(event: Event) {
     let imageElement = event.target as HTMLImageElement;
     imageElement.src = this.emptyStateImage;
+  }
+
+  // create dummy array for loading shimmer
+  createArray(length: number): number[] {
+    return Array.from({ length }, (_, i) => i)
   }
 }
