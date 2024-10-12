@@ -1,3 +1,5 @@
+@import "src/app/styles/variables";
+
 @keyframes breathing {
   0% {
     transform: scale(0.9);
@@ -32,7 +34,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px 25px;
-  background-color: #b1cee3;
+  background-color: $color-1;
 
   .logo {
     width: 60px;
@@ -54,11 +56,11 @@
     clip-path: polygon(0 0, 100% 0, 94% 100%, 6% 100%);
     padding: 10px 40px;
     animation: dropping 0.5s ease-in-out;
-    background: linear-gradient(to bottom, #8daaff, #577cff);
+    background: linear-gradient(to bottom, $color-8, $color-4);
 
     span {
       font-size: 40px;
-      color: #ffffff;
+      color: $color-5;
     }
   }
 

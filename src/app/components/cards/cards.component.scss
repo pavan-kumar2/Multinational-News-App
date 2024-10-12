@@ -1,4 +1,5 @@
 @import "src/app/styles/base";
+@import "src/app/styles/variables";
 
 .cards-container {
   @include flex-box($wrap: wrap);
@@ -8,7 +9,7 @@
 
   .card {
     width: calc((100% - 50px) / 3);
-    border: 1px solid #b1cee3;
+    border: 1px solid $color-1;
     border-radius: 10px;
     overflow: hidden;
     box-sizing: border-box;
@@ -16,7 +17,7 @@
     .img-container {
       height: 280px;
       min-height: 280px;
-      background-color: #e2f3f6;
+      background-color: $color-2;
       img {
         width: 100%;
         height: 100%;
@@ -38,18 +39,18 @@
         .title {
           font-size: 22px;
           font-weight: 600;
-          color: #232323;
+          color: $color-3;
         }
 
         .description {
           font-size: 16px;
           font-weight: 400;
-          color: #232323;
+          color: $color-3;
         }
 
         .action-btn {
-          background-color: #577cff;
-          color: white;
+          background-color: $color-4;
+          color: $color-5;
           width: max-content;
           font-size: 16px;
           font-weight: 500;

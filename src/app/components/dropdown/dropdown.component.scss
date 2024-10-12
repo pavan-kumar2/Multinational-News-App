@@ -1,3 +1,5 @@
+@import "src/app/styles/variables";
+
 ::ng-deep {
   .ng-select.ng-select-single .ng-select-container {
     height: 40px;
@@ -11,12 +13,12 @@
 
     /* Track */
     &::-webkit-scrollbar-track {
-      background: #f1f1f1;
+      background: $color-6;
     }
 
     /* Handle */
     &::-webkit-scrollbar-thumb {
-      background: #c1c1c1;
+      background: $color-7;
       border-radius: 3px;
     }
   }
