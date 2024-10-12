@@ -1,0 +1,53 @@
+<div class="cards-container">
+  <ng-container *ngIf="!isError && !isLoading">
+    <div class="card" *ngFor="let newsArticle of newsArticles">
+      <div class="img-container">
+        <img
+          class="response-img"
+          [src]="newsArticle.urlToImage"
+          (error)="imageErrorHandling($event)"
+        />
+      </div>
+
+      <div class="content-container">
+        <div class="top-section">
+          <h4 class="title" *ngIf="newsArticle.title">
+            {{ newsArticle.title }}
+          </h4>
+
+          <div
+            class="description"
+            *ngIf="newsArticle.description"
+            [innerHTML]="newsArticle.description"
+          ></div>
+
+          <a class="action-btn" [href]="newsArticle.url" target="_blank">
+            View More</a
+          >
+        </div>
+
+        <div class="bottom-section">
+          <p class="author" *ngIf="newsArticle.author">
+            <span> Author: </span>
+            <span [innerHTML]="newsArticle.author"></span>
+          </p>
+
+          <div class="published-time">
+            <span> Published At: </span>
+
+            <p [innerHTML]="newsArticle.publishedAt"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="isError">
+    <img class="empty-state" src="assets/images/response-error.jpg" />
+  </ng-container>
+
+  <ng-container *ngIf="isLoading">
+    <ng-container *ngFor="let _ of createArray(6)">
+      <app-loading-shimmer-card></app-loading-shimmer-card>
+    </ng-container>
+  </ng-container>
+</div>

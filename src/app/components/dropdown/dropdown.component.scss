@@ -1,0 +1,23 @@
+::ng-deep {
+  .ng-select.ng-select-single .ng-select-container {
+    height: 40px;
+    border-radius: 20px;
+  }
+  .ng-dropdown-panel .scroll-host {
+    /* width */
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: #c1c1c1;
+      border-radius: 3px;
+    }
+  }
+}

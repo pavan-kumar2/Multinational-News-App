@@ -1,0 +1,66 @@
+@import "src/app/styles/base";
+
+:host {
+  width: calc((100% - 50px) / 3);
+}
+
+@keyframes shimmer {
+  from {
+    background-position: -1000px 0;
+  }
+  to {
+    background-position: 1000px 0;
+  }
+}
+
+.animate {
+  animation: shimmer 3s;
+  animation-iteration-count: infinite;
+  background: linear-gradient(to right, #e6e6e6 5%, #cccccc 25%, #e6e6e6 35%);
+  background-size: 1000px 100%;
+}
+
+.loading-card {
+  border: 1px solid #b1cee3;
+  border-radius: 10px;
+  overflow: hidden;
+  box-sizing: border-box;
+  @include flex-box($direction: column);
+  .loading-img {
+    height: 280px;
+    min-height: 280px;
+  }
+
+  .wrapper {
+    padding: 20px;
+    height: 100%;
+    @include flex-box($direction: column, $gap: 20px);
+
+    .loading-wrapper {
+      @include flex-box($direction: column, $gap: 5px);
+    }
+
+    .stroke-1 {
+      height: 20px;
+    }
+
+    .stroke-2 {
+      height: 15px;
+    }
+
+    .loading-btn {
+      height: 40px;
+      border-radius: 5px;
+      width: 115px;
+      margin: 0 0 10px;
+    }
+
+    .loading-author {
+      width: 45%;
+    }
+
+    .loading-time {
+      width: 60%;
+    }
+  }
+}

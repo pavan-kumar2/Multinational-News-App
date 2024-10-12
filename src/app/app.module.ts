@@ -7,19 +7,23 @@ import { HeaderComponent } from './components/header/header.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { CardsComponent } from './components/cards/cards.component'
+import { LoadingShimmerCardComponent } from "./components/loading-shimmer-card/loading-shimmer-card.component";
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    DropdownComponent
+    DropdownComponent,
+    CardsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgSelectModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    LoadingShimmerCardComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

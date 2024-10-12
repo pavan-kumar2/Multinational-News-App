@@ -1,5 +1,3 @@
-<app-header></app-header>
+<app-header (selectedCountry$)="selectedCountry = $event"></app-header>
 
-<div class="cards-container">
-  <div class="card"></div>
-</div>
+<app-cards [selectedCountry]="selectedCountry"></app-cards>
