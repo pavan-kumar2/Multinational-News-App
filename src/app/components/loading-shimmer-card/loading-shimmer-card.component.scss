@@ -3,6 +3,14 @@
 
 :host {
   width: calc((100% - 50px) / 3);
+
+  @media (max-width: 1200px) {
+    width: calc((100% - 25px) / 2);
+  }
+
+  @media (max-width: 769px) {
+    width: 100%;
+  }
 }
 
 @keyframes shimmer {
