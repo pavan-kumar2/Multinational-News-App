@@ -12,3 +12,9 @@
   flex-wrap: $wrap;
   gap: $gap;
 }
+
+@mixin font-style($f-size, $f-weight, $f-color) {
+  font-size: $f-size;
+  font-weight: $f-weight;
+  color: $f-color;
+}

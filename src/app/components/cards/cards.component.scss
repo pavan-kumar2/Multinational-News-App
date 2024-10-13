@@ -37,23 +37,17 @@
       .top-section {
         @include flex-box($direction: column, $gap: 15px);
         .title {
-          font-size: 22px;
-          font-weight: 600;
-          color: $color-3;
+          @include font-style(22px, 600, $color-3);
         }
 
         .description {
-          font-size: 16px;
-          font-weight: 400;
-          color: $color-3;
+          @include font-style(16px, 400, $color-3);
         }
 
         .action-btn {
           background-color: $color-4;
-          color: $color-5;
           width: max-content;
-          font-size: 16px;
-          font-weight: 500;
+          @include font-style(16px, 500, $color-5);
           padding: 10px 20px;
           text-decoration: none;
           border-radius: 5px;
@@ -68,8 +62,7 @@
       .bottom-section {
         @include flex-box($direction: column, $gap: 10px);
         .author {
-          font-size: 15px;
-          font-weight: 400;
+          @include font-style(15px, 400, $color-3);
 
           span {
             &:first-child {
@@ -79,8 +72,7 @@
         }
 
         .published-time {
-          font-size: 15px;
-          font-weight: 400;
+          @include font-style(15px, 400, $color-3);
           @include flex-box($gap: 5px);
 
           span {
