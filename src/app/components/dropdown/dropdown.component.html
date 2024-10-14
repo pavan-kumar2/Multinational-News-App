@@ -1,5 +1,6 @@
 <ng-select
-  (change)="selectCountry(selectedCountry)"
+  #countrySelect
+  (ngModelChange)="selectCountry($event)"
   [(ngModel)]="selectedCountry"
 >
   <ng-option *ngFor="let country of countries" [value]="country.value">{{

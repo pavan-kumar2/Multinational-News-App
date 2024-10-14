@@ -1,7 +1,16 @@
 @import "src/app/styles/base";
+@import "src/app/styles/variables";
 
 :host {
   width: calc((100% - 50px) / 3);
+
+  @media (max-width: 1200px) {
+    width: calc((100% - 25px) / 2);
+  }
+
+  @media (max-width: 769px) {
+    width: 100%;
+  }
 }
 
 @keyframes shimmer {
@@ -16,12 +25,17 @@
 .animate {
   animation: shimmer 3s;
   animation-iteration-count: infinite;
-  background: linear-gradient(to right, #e6e6e6 5%, #cccccc 25%, #e6e6e6 35%);
+  background: linear-gradient(
+    to right,
+    $color-9 5%,
+    $color-10 25%,
+    $color-11 35%
+  );
   background-size: 1000px 100%;
 }
 
 .loading-card {
-  border: 1px solid #b1cee3;
+  border: 1px solid $color-12;
   border-radius: 10px;
   overflow: hidden;
   box-sizing: border-box;

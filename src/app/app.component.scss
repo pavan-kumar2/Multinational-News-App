@@ -1,0 +1,26 @@
+@import "src/app/styles/variables";
+@import "src/app/styles/base";
+
+.scroll-top-btn {
+  position: fixed;
+  bottom: 35px;
+  left: calc(100% - 70px);
+  width: 45px;
+  height: 45px;
+  background-color: $color-4;
+  border: none;
+  border-radius: 50%;
+  @include flex-box($align: center, $justify: center);
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+
+  img {
+    width: 16px;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}

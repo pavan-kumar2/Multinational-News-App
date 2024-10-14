@@ -1,5 +1,5 @@
 
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { SELECTED_COUNTRY } from './shared/country.constants';
 
 
@@ -14,6 +14,22 @@ export class AppComponent {
 
   selectedCountry: string = SELECTED_COUNTRY;
 
+  isScrollTopButton: boolean = false;
+
   constructor() { }
+
+  @HostListener('window:scroll', []) onWindowScroll() {
+
+    if (window.scrollY > 200) {
+      this.isScrollTopButton = true;
+    } else {
+      this.isScrollTopButton = false;
+    }
+
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
 }

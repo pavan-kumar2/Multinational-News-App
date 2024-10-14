@@ -1,3 +1,6 @@
+@import "src/app/styles/variables";
+@import "src/app/styles/base";
+
 @keyframes breathing {
   0% {
     transform: scale(0.9);
@@ -28,11 +31,11 @@
 
 .header {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  @include flex-box($align: center, $justify: space-between);
   padding: 10px 25px;
-  background-color: #b1cee3;
+  background-color: $color-1;
+  height: 77px;
+  box-sizing: border-box;
 
   .logo {
     width: 60px;
@@ -48,21 +51,52 @@
   }
 
   ::ng-deep .title-badge {
-    font-size: 30px;
-    font-weight: 600;
+    @include font-style(30px, 600, $color-3);
+    white-space: nowrap;
     letter-spacing: 0.5px;
     clip-path: polygon(0 0, 100% 0, 94% 100%, 6% 100%);
     padding: 10px 40px;
     animation: dropping 0.5s ease-in-out;
-    background: linear-gradient(to bottom, #8daaff, #577cff);
+    background: linear-gradient(to bottom, $color-8, $color-4);
 
     span {
-      font-size: 40px;
-      color: #ffffff;
+      @include font-style(40px, 600, $color-5);
     }
   }
 
   .dropdown-container {
     width: 250px;
+  }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 992px) {
+  .header {
+    .title-badge-container {
+      left: 30%;
+      transform: translate(-30%, 0);
+    }
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .header {
+    padding: 10px 0 10px 20px;
+
+    .title-badge-container {
+      top: 77px;
+      width: 100%;
+    }
+
+    ::ng-deep .title-badge {
+      font-size: 20px;
+      padding: 10px;
+      @include flex-box($align: flex-end, $justify: center);
+      gap: 7px;
+
+      span {
+        font-size: 26px;
+        line-height: 30px;
+      }
+    }
   }
 }
