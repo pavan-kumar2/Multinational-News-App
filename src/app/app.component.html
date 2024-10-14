@@ -1,3 +1,11 @@
 <app-header (selectedCountry$)="selectedCountry = $event"></app-header>
 
 <app-cards [selectedCountry]="selectedCountry"></app-cards>
+
+<button
+  class="scroll-top-btn"
+  *ngIf="isScrollTopButton"
+  (click)="scrollToTop()"
+>
+  <img src="assets/images/arrow-up-solid.svg" />
+</button>
