@@ -14,18 +14,7 @@ export class NewsApiService {
   isError$: Observable<boolean> = this.isErrorSubject.asObservable();
   isLoading$: Observable<boolean> = this.isLoadingSubject.asObservable();
 
-  // Create a new Date object
-  currentDate = new Date();
-
-  formateDate = this.currentDate.toLocaleDateString('en-CA', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit'
-  })
-
-  formateTime = this.currentDate.toLocaleTimeString('en-US', { hour12: true })
-
-  updatedDate = `${this.formateDate}   <span>${this.formateTime}</span>`
+  formateDate: any;
 
   constructor(private http: HttpClient) { }
 
@@ -37,7 +26,9 @@ export class NewsApiService {
       day: '2-digit'
     })
 
-    const formateTime = this.currentDate.toLocaleTimeString('en-US', { hour12: true })
+    this.formateDate = formateDate;
+
+    const formateTime = currentDate.toLocaleTimeString('en-US', { hour12: true })
 
     return `${formateDate}   <span>${formateTime}</span>`;
 
