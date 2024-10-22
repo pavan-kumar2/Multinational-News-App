@@ -41,12 +41,18 @@ export class AppComponent implements OnInit {
     this.metaService.updateTag({ property: 'og:url', content: 'https://multinational-news-app.netlify.app' });
     this.metaService.updateTag({ property: 'og:type', content: 'website' });
 
+    this.metaService.updateTag({ property: 'twitter:card', content: 'summary_large_image' });
+    this.metaService.updateTag({ property: 'twitter:title', content: 'Multinational News App - global Updates' });
+    this.metaService.updateTag({ property: 'twitter:description', content: 'Stay updated with the latest news from around the world.' });
+    this.metaService.updateTag({ property: 'twitter:image', content: 'assets/images/MN-logo.png' });
 
     this.addStructureData();
 
   }
 
   addStructureData() {
+    this.newsApiService.getFormattedDate()
+
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.text = `{

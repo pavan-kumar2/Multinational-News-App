@@ -18,7 +18,7 @@ export class NewsApiService {
 
   constructor(private http: HttpClient) { }
 
-  private getFormat1tedDate() {
+  getFormattedDate() {
     const currentDate = new Date();
     const formateDate = currentDate.toLocaleDateString('en-CA', {
       year: 'numeric',
@@ -43,7 +43,7 @@ export class NewsApiService {
             return {
               ...article,
               urlToImage: article.urlToImage || 'assets/images/no-image-found.png',
-              publishedAt: this.getFormat1tedDate()
+              publishedAt: this.getFormattedDate()
             }
           })
         }),
