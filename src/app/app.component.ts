@@ -37,17 +37,16 @@ export class AppComponent implements OnInit {
     this.metaService.updateTag({ name: 'description', content: 'Stay updated with the global news from around the world.' });
     this.metaService.updateTag({ property: 'og:title', content: 'Multinational News App - global Updates' });
     this.metaService.updateTag({ property: 'og:description', content: 'Stay updated with the latest news from around the world.' });
-    this.metaService.updateTag({ property: 'og:image', content: 'assets/images/MN-logo.png' });
+    this.metaService.updateTag({ property: 'og:image', content: 'https://raw.githubusercontent.com/pavan-kumar2/Multinational-News-App/refs/heads/main/src/assets/images/MN-logo.png' });
     this.metaService.updateTag({ property: 'og:url', content: 'https://multinational-news-app.netlify.app' });
     this.metaService.updateTag({ property: 'og:type', content: 'website' });
 
     this.metaService.updateTag({ property: 'twitter:card', content: 'summary_large_image' });
     this.metaService.updateTag({ property: 'twitter:title', content: 'Multinational News App - global Updates' });
     this.metaService.updateTag({ property: 'twitter:description', content: 'Stay updated with the latest news from around the world.' });
-    this.metaService.updateTag({ property: 'twitter:image', content: 'assets/images/MN-logo.png' });
+    this.metaService.updateTag({ property: 'twitter:image', content: 'https://raw.githubusercontent.com/pavan-kumar2/Multinational-News-App/refs/heads/main/src/assets/images/MN-logo.png' });
 
     this.addStructureData();
-
   }
 
   addStructureData() {
@@ -59,7 +58,7 @@ export class AppComponent implements OnInit {
         "@context": "https://schema.org",
         "@type": "NewsArticle",
         "headline": "${this.selectedCountry}",
-        "image": "assets/images/MN-logo.png",
+        "image": "https://raw.githubusercontent.com/pavan-kumar2/Multinational-News-App/refs/heads/main/src/assets/images/MN-logo.png",
         "datePublished": "${this.newsApiService.formateDate}",
         "author": {
           "@type": "Person",
