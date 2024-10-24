@@ -20,9 +20,37 @@ The Multinational News App is an Angular-based application that aggregates and d
 - HTML5 & CSS3
 - Node.js & npm
 
-## Development server
+## Styling and UI
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The UI is styled using **Sass (SCSS)**, which allows for a more modular and maintainable codebase:
+
+- **Variables**: Variables are used to store theme-related values like colors, font sizes, and margins. This makes it easy to maintain a consistent design and adjust styles centrally.
+
+  ```scss
+  // Example: src/styles/_variables.scss
+  $primary-color: #3498db;
+  $secondary-color: #2ecc71;
+  $font-size-base: 16px;
+  ```
+
+- **Mixins**: Reusable styles are created using Sass mixins to avoid code duplication. These mixins are defined for common patterns like flex layouts, buttons, and responsive breakpoints.
+
+  ```scss
+  // Example: src/styles/_mixins.scss
+  @mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @mixin responsive($breakpoint) {
+    @media (max-width: $breakpoint) {
+      @content;
+    }
+  }
+  ```
+
+- **Global Styles**: Global styles are defined in `styles.scss` to ensure a cohesive design throughout the app. This includes resetting styles, defining typography, and importing `@mixin` and variables for consistent usage.
 
 ## Code scaffolding
 
