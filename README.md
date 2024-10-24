@@ -5,20 +5,20 @@ The Multinational News App is an Angular-based application that aggregates and d
 
 ## Features
 
-Browse news articles from multiple countries.
-Filter news by categories and sources.
-Real-time updates with RxJS for state management.
-Mobile-responsive UI built using Angular components.
-Standalone component architecture for better modularity.
+- Browse news articles from multiple countries.
+- Filter news by categories and sources.
+- Real-time updates with RxJS for state management.
+- Mobile-responsive UI built using Angular components.
+- Standalone component architecture for better modularity.
 
 ## Technologies
 
-Angular (Standalone components)
-RxJS for state management
-TypeScript
-Sass for styling with @mixin and variables
-HTML5 & CSS3
-Node.js & npm
+- Angular (Standalone components)
+- RxJS for state management
+- TypeScript
+- Sass for styling with @mixin and variables
+- HTML5 & CSS3
+- Node.js & npm
 
 ## Development server
 
