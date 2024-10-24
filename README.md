@@ -52,22 +52,14 @@ The UI is styled using **Sass (SCSS)**, which allows for a more modular and main
 
 - **Global Styles**: Global styles are defined in `styles.scss` to ensure a cohesive design throughout the app. This includes resetting styles, defining typography, and importing `@mixin` and variables for consistent usage.
 
-## Code scaffolding
+## RxJS for State Management
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The **Multinational News App** leverages **RxJS** (Reactive Extensions for JavaScript) for effective state management:
 
-## Build
+- **Observables**: Utilized to manage asynchronous operations, such as fetching data from APIs and handling user interactions. The app's components subscribe to these Observables for real-time updates.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Subjects & BehaviorSubjects**: Subjects manage the flow of data, while BehaviorSubjects are used for storing the latest news state, ensuring that all components receive up-to-date information.
 
-## Running unit tests
+- **Operators**: RxJS operators like `map`, `filter`, `switchMap`, and `mergeMap` streamline data transformation. These operators handle filtering categories, switching sources, and managing asynchronous tasks.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- **State Management**: Services integrate RxJS to maintain the application's state. Components subscribe to these services to access and react to changing data, enabling a dynamic and responsive user interface.
