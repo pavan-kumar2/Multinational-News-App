@@ -63,3 +63,85 @@ The **Multinational News App** leverages **RxJS** (Reactive Extensions for JavaS
 - **Operators**: RxJS operators like `map`, `filter`, `switchMap`, and `mergeMap` streamline data transformation. These operators handle filtering categories, switching sources, and managing asynchronous tasks.
 
 - **State Management**: Services integrate RxJS to maintain the application's state. Components subscribe to these services to access and react to changing data, enabling a dynamic and responsive user interface.
+
+# Reactive State Management and Error Handling in Angular Using RxJS: An Efficient News API Integration
+
+This project demonstrates an efficient integration of a News API service using Angular and RxJS to manage loading and error states, handle data transformation, and prevent memory leaks with structured subscription management.
+
+## Key Features
+
+1. **Reactive State Management with BehaviorSubjects**
+
+   - `isErrorSubject` and `isLoadingSubject` are `BehaviorSubjects` in `NewsApiService` used to manage and emit changes in loading and error states.
+   - These subjects help provide real-time feedback across the application by emitting new values whenever the loading or error status changes.
+
+2. **Observables for State Tracking**
+
+   - `isError$` and `isLoading$` are observables created from the subjects, ensuring consistent state updates across components.
+   - Components like `CardsComponent` can subscribe to these observables to track loading and error states without directly manipulating the `BehaviorSubjects`.
+
+3. **Data Transformation with RxJS Operators**
+
+   - **`map`**: This operator transforms incoming news article data, adding a fallback image for missing URLs and formatting the publish date using `getFormattedDate()`.
+   - **`tap`**: Used for side effects, such as updating loading and error statuses after data processing but before passing the data to subscribers.
+
+4. **Error Handling with `catchError`**
+
+   - Errors encountered during HTTP requests are managed by `catchError`, logging the error, updating the error state, and returning an empty array to avoid application crashes.
+
+5. **Subscription Management with `takeUntil`**
+   - In `CardsComponent`, `takeUntil` ensures that subscriptions are automatically unsubscribed when the component is destroyed. This is achieved through a `Subject` (`destroy$`), which signals to complete all observable streams on component teardown, preventing memory leaks.
+
+## Code Highlights
+
+### NewsApiService (Service Layer)
+
+```typescript
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { NewsArticle } from "../shared/news-articles.model";
+import { BehaviorSubject, catchError, map, Observable, of, tap } from "rxjs";
+
+@Injectable({
+  providedIn: "root",
+})
+export class NewsApiService {
+  private isErrorSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private isLoadingSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+  isError$: Observable<boolean> = this.isErrorSubject.asObservable();
+  isLoading$: Observable<boolean> = this.isLoadingSubject.asObservable();
+
+  constructor(private http: HttpClient) {}
+
+  getFormattedDate() {
+    const currentDate = new Date();
+    const formattedDate = currentDate.toLocaleDateString("en-CA", { year: "numeric", month: "2-digit", day: "2-digit" });
+    const formattedTime = currentDate.toLocaleTimeString("en-US", { hour12: true });
+    return `${formattedDate} <span>${formattedTime}</span>`;
+  }
+
+  getNewsRequest(country: string) {
+    this.isLoadingSubject.next(true);
+    return this.http.get<{ articles: NewsArticle[] }>(`https://example.com/news-${country}.json`).pipe(
+      map((response) =>
+        response.articles.map((article) => ({
+          ...article,
+          urlToImage: article.urlToImage || "assets/images/no-image-found.png",
+          publishedAt: this.getFormattedDate(),
+        }))
+      ),
+      tap(() => {
+        this.isLoadingSubject.next(false);
+        this.isErrorSubject.next(false);
+      }),
+      catchError((error) => {
+        console.error("Error fetching news:", error);
+        this.isLoadingSubject.next(false);
+        this.isErrorSubject.next(true);
+        return of([]);
+      })
+    );
+  }
+}
+```
