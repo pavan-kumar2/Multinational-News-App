@@ -27,27 +27,23 @@ The UI is styled using **Sass (SCSS)**, which allows for a more modular and main
 - **Variables**: Variables are used to store theme-related values like colors, font sizes, and margins. This makes it easy to maintain a consistent design and adjust styles centrally.
 
   ```scss
-  // Example: src/styles/_variables.scss
-  $primary-color: #3498db;
-  $secondary-color: #2ecc71;
-  $font-size-base: 16px;
+  $color-1: #b1cee3;
+  background-color: $color-1;
   ```
 
 - **Mixins**: Reusable styles are created using Sass mixins to avoid code duplication. These mixins are defined for common patterns like flex layouts, buttons, and responsive breakpoints.
 
   ```scss
-  // Example: src/styles/_mixins.scss
-  @mixin flex-center {
+  @mixin flex-box($direction: null, $align: null, $justify: null, $wrap: null, $gap: null) {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+    flex-wrap: $wrap;
+    gap: $gap;
   }
 
-  @mixin responsive($breakpoint) {
-    @media (max-width: $breakpoint) {
-      @content;
-    }
-  }
+  @include flex-box($direction: column, $justify: space-between, $gap: 20px);
   ```
 
 - **Global Styles**: Global styles are defined in `styles.scss` to ensure a cohesive design throughout the app. This includes resetting styles, defining typography, and importing `@mixin` and variables for consistent usage.
