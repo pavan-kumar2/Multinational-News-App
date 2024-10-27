@@ -52,23 +52,7 @@ The UI is styled using **Sass (SCSS)**, which allows for a more modular and main
 
 - **Global Styles**: Global styles are defined in `styles.scss` to ensure a cohesive design throughout the app. This includes resetting styles, defining typography, and importing `@mixin` and variables for consistent usage.
 
-## RxJS for State Management
-
-The **Multinational News App** leverages **RxJS** (Reactive Extensions for JavaScript) for effective state management:
-
-- **Observables**: Utilized to manage asynchronous operations, such as fetching data from APIs and handling user interactions. The app's components subscribe to these Observables for real-time updates.
-
-- **Subjects & BehaviorSubjects**: Subjects manage the flow of data, while BehaviorSubjects are used for storing the latest news state, ensuring that all components receive up-to-date information.
-
-- **Operators**: RxJS operators like `map`, `filter`, `switchMap`, and `mergeMap` streamline data transformation. These operators handle filtering categories, switching sources, and managing asynchronous tasks.
-
-- **State Management**: Services integrate RxJS to maintain the application's state. Components subscribe to these services to access and react to changing data, enabling a dynamic and responsive user interface.
-
-# Reactive State Management and Error Handling in Angular Using RxJS: An Efficient News API Integration
-
-This project demonstrates an efficient integration of a News API service using Angular and RxJS to manage loading and error states, handle data transformation, and prevent memory leaks with structured subscription management.
-
-## Key Features
+# Reactive State Management and Error Handling in Angular Using RxJS
 
 1. **Reactive State Management with BehaviorSubjects**
 
@@ -97,14 +81,6 @@ This project demonstrates an efficient integration of a News API service using A
 ### NewsApiService (Service Layer)
 
 ```typescript
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { NewsArticle } from "../shared/news-articles.model";
-import { BehaviorSubject, catchError, map, Observable, of, tap } from "rxjs";
-
-@Injectable({
-  providedIn: "root",
-})
 export class NewsApiService {
   private isErrorSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   private isLoadingSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
@@ -142,6 +118,29 @@ export class NewsApiService {
         return of([]);
       })
     );
+  }
+}
+
+export class CardsComponent implements OnInit, OnDestroy {
+  private destroy$ = new Subject<void>();
+
+  constructor(private newsApiService: NewsApiService) {}
+
+  ngOnInit() {
+    this.newsApiService.isLoading$.pipe(takeUntil(this.destroy$)).subscribe((value) => (this.isLoading = value));
+    this.newsApiService.isError$.pipe(takeUntil(this.destroy$)).subscribe((value) => (this.isError = value));
+  }
+
+  fetchNewsArticles(country: string) {
+    this.newsApiService
+      .getNewsRequest(country)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((value) => (this.newsArticles = value));
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
 ```
