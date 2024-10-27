@@ -46,8 +46,6 @@ The UI is styled using **Sass (SCSS)**, which allows for a more modular and main
   @include flex-box($direction: column, $justify: space-between, $gap: 20px);
   ```
 
-- **Global Styles**: Global styles are defined in `styles.scss` to ensure a cohesive design throughout the app. This includes resetting styles, defining typography, and importing `@mixin` and variables for consistent usage.
-
 # Reactive State Management and Error Handling Using RxJS
 
 1. **Reactive State Management with BehaviorSubjects**
