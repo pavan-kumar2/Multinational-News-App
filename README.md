@@ -46,7 +46,7 @@ The UI is styled using **Sass (SCSS)**, which allows for a more modular and main
   @include flex-box($direction: column, $justify: space-between, $gap: 20px);
   ```
 
-# Reactive State Management and Error Handling Using RxJS
+## Reactive State Management and Error Handling Using RxJS
 
 1. **Reactive State Management with BehaviorSubjects**
 
