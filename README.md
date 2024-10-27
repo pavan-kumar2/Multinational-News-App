@@ -1,4 +1,4 @@
-# MultinationalNewsApp
+# Multinational News App
 
 Multinational News App
 The Multinational News App is an Angular-based application that aggregates and displays news from various countries and sources. It leverages modern Angular components, services, and RxJS for state management to provide users with an up-to-date and intuitive news browsing experience.
