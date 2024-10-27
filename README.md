@@ -17,7 +17,7 @@ The Multinational News App is an Angular-based application that aggregates and d
 - RxJS for state management
 - TypeScript
 - Sass for styling with @mixin and variables
-- HTML5 & CSS3
+- HTML5, CSS3 & SCSS
 - Node.js & npm
 
 ## Styling and UI
