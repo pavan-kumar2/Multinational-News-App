@@ -52,7 +52,7 @@ The UI is styled using **Sass (SCSS)**, which allows for a more modular and main
 
 - **Global Styles**: Global styles are defined in `styles.scss` to ensure a cohesive design throughout the app. This includes resetting styles, defining typography, and importing `@mixin` and variables for consistent usage.
 
-# Reactive State Management and Error Handling in Angular Using RxJS
+# Reactive State Management and Error Handling Using RxJS
 
 1. **Reactive State Management with BehaviorSubjects**
 
@@ -78,9 +78,8 @@ The UI is styled using **Sass (SCSS)**, which allows for a more modular and main
 
 ## Code Highlights
 
-### NewsApiService (Service Layer)
-
 ```typescript
+// newsAPi service
 export class NewsApiService {
   private isErrorSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   private isLoadingSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
@@ -121,6 +120,7 @@ export class NewsApiService {
   }
 }
 
+// card component
 export class CardsComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
 
