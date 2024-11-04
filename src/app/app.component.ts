@@ -57,7 +57,7 @@ export class AppComponent implements OnInit {
         "@context": "https://schema.org",
         "@type": "NewsArticle",
         "headline": "${this.selectedCountry}",
-        "image": "https://raw.githubusercontent.com/pavan-kumar2/Multinational-News-App/refs/heads/main/src/assets/images/MN-logo.png",
+        "image": "https://raw.githubusercontent.com/pavan-kumar2/Buckets/refs/heads/master/MN-logo.png",
         "datePublished": "${this.newsApiService.formateDate}",
         "author": {
           "@type": "Person",
