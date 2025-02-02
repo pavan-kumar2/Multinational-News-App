@@ -1,5 +1,5 @@
 <div class="cards-container">
-  <ng-container *ngIf="!isError && !isLoading">
+  <ng-container *ngIf="!isError && !isLoading && newsArticles">
     <div class="card" *ngFor="let newsArticle of newsArticles">
       <div class="img-container">
         <img
@@ -41,7 +41,7 @@
       </div>
     </div>
   </ng-container>
-  <ng-container *ngIf="isError">
+  <ng-container *ngIf="(isError && !isLoading) || !newsArticles">
     <img class="empty-state" src="assets/images/response-error.jpg" />
   </ng-container>
 
